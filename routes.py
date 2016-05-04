@@ -17,7 +17,7 @@ app.config['SECRET_KEY'] = 'whattokeepsecret!'
 def mapview():
     return render_template('index.html')
 
-
+    
 
 
 @app.route("/storelocations",methods=['POST','GET'])
@@ -27,7 +27,7 @@ def storelocation():
     session['longitude'] = request.json.get('longitude',x )
     session['lattitude'] = request.json.get('lattitude',y)
 
-    return jsonify(msg="Stored")
+    return jsonify(msg="saved")
 
 
 
@@ -52,16 +52,16 @@ def showmap(id):
         value = "Masjid"
     if id == 4:
         place = "School and College"
-        value = "School+College"
+        value = "School+Institute"
     if id == 5:
         place = "Hospital"
         value = "Hospital"
     if id == 6:
         place = "Metro Station"
-        value = "Metro+Station"
+        value = "Station+Metro"
     if id == 7:
         place = "Railway Station"
-        value = "Railway+Station"
+        value = "Station+Station"
 	
     url = 'https://maps.googleapis.com/maps/api/place/radarsearch/json?location='+latt+','+lon+'&radius=5000&name='+value+'&key='+key
     urlData = urllib2.urlopen(url)

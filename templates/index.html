@@ -215,6 +215,7 @@
 
             <div class="row">
                 <div class="col-lg-6 col-lg-offset-4">
+                    <p id="demo"></p>
                    <p style="color:red;">The accuracy of the coordinates depends on the location data provided by your browser.If the results are unexpected try manualy entering your location.</p>
                 </div>
             </div>
@@ -412,7 +413,7 @@ function showPosition(position) {
         contentType: 'application/json; charset=utf-8',
         success : function(data)
         {
-            console.log("asda");
+            console.log(data['msg']);
         }
 
     }) ;
