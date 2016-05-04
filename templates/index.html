@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>LocateMe</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+      .controls {
+        background-color: #fff;
+        border-radius: 2px;
+        border: 1px solid transparent;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        box-sizing: border-box;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        height: 29px;
+        margin-left: 17px;
+        margin-top: 10px;
+        outline: none;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 400px;
+      }
+
+      .controls:focus {
+        border-color: #4d90fe;
+      }
+    </style>
+ 
+
+</head>
+
+<body>
+
+
+    <!-- Navigation -->
+  <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand topnav" ]>Locate Me</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+                    <li>
+                        <a href="#search">Search</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+                    <li>
+                        <a href="#disclaimer">Disclaimer</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+ 
+    <!-- Header -->
+    
+    <div class="intro-header">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h3 style="padding-top:40px;">Travel without Worries</h3>
+                        <hr class="intro-divider">
+                        <ul class="list-inline intro-social-buttons">
+                            <li>
+                                <a href="/showmap/1" class="btn btn-default btn-lg"><i class="fa fa-bus"></i> <span class="network-name">Bus Stop</span></a>
+                            </li>
+                            <li>
+                                <a href="/showmap/2" class="btn btn-default btn-lg"><i class="fa fa-coffee fa-fw"></i> <span class="network-name">Restaurants</span></a>
+                            </li>
+                            <li>
+                                <a href="/showmap/3" class="btn btn-default btn-lg"><i class="fa fa-users fa-fw"></i> <span class="network-name">Masjid</span></a>
+                            </li>
+                            <li>
+                                <a href="/showmap/4" class="btn btn-default btn-lg"><i class="fa fa-building fa-fw"></i> <span class="network-name">School and College</span></a>
+                            </li>
+                          
+                            <li>
+                                <a href="/showmap/5" class="btn btn-default btn-lg"><i class="fa fa-hospital-o fa-fw"></i> <span class="network-name">Hospital</span></a>
+                            </li>
+
+                            <li>
+                                <a href="/showmap/6" class="btn btn-default btn-lg"><i class="fa fa-subway fa-fw"></i> <span class="network-name">Metro</span></a>
+                            </li>
+
+
+                            <li>
+                                <a href="/showmap/7" class="btn btn-default btn-lg"><i class="fa fa-train fa-fw"></i> <span class="network-name">Railway Station</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.intro-header -->
+
+    <!-- Page Content -->
+
+	<a  name="services"></a>
+    <div class="content-section-a">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+
+                    <h2 class="section-heading">Locate nearest landmarks <br></h2>
+
+                    <p class="lead">Now locate your favourite places by using Locate Me and view them easily on a map.
+                    </br>Simple and easy to use.</br>Click on the button which suits your query and your result is displayed.</p>
+
+
+
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <img class="img-responsive" src="http://zafigo.com/wp-content/uploads/2015/11/Vietnam_topasmain-e1448520569649.jpg" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-a -->
+
+    <div class="content-section-b">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">View Your Location</h2>
+                    <p class="lead">View your nearest Bus Stop,Restaurants,Masjid,School,College,Hospital,Metro Stations and Railway Stations and view them on a map</p>
+                </div>
+                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                    <img class="img-responsive" src="http://www.bosmontmasjid.co.za/wp-content/uploads/2011/06/masjid1.jpeg" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-b -->
+
+    <!-- /.content-section-a -->
+
+
+
+
+
+
+
+
+    <div class="banner">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6 col-lg-offset-4">
+                   <p style="color:red;">The accuracy of the coordinates depends on the location data provided by your browser.If the results are unexpected try manualy entering your location.</p>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+
+    <a name="search"></a>
+    <div class="container">
+    <h3>Set your location by typing in your location and then click on any of the above button</h3>
+<div style="height:500px;">
+                    <!-- sds -->
+<input id="pac-input" class="controls" type="text"
+        placeholder="Enter your location">
+    <div id="map" ></div>
+</div>
+</div>
+<!-- zsc -->
+
+<a name="about"></a>
+<div class="container">
+
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-1 col-sm-push-1  col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">About</h2>
+                    <p class="lead">Locate Me is a web app made with google places API that lets user find their nearest bus stops,masjid,hospitals etc by a single click.The app supports automatic retrieval of location coordinates and also manually searching desired locations. Than we could easily find nearest landmarks. </p>
+                </div>
+               
+            </div>
+
+        </div>
+
+
+<a name="contact"></a>
+<div class="container">
+
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-1 col-sm-push-1  col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Contact Us</h2>
+                    <p class="lead">In case you find any bug or want to request any feature feel free to drop an email at msr.concordfly@gmail.com </p>
+                </div>
+               
+            </div>
+
+        </div>
+
+
+
+<a name="disclaimer"></a>
+<div class="container">
+
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-1 col-sm-push-1  col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Disclaimer</h2>
+                    <p class="lead">Locate Me is a app developed for quickly locating nearby landmarks withis the range of 5km.The accuracy of the coordinates depends on the geolocation data provided by your browser. If the results are unexpected search your location and then without refreshing the page click on any of the buttons.Locate Me in anyway is not responsible for the harm or loss caused by inaccuracy of information provided. </p>
+                </div>
+               
+            </div>
+
+        </div>
+
+    <!-- /.banner -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    
+                    <p class="copyright text-muted small">Copyright &copy; Locate Me  2016. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+<script
+              src="https://code.jquery.com/jquery-1.12.3.min.js"
+              integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="
+              crossorigin="anonymous"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+
+<script type="text/javascript">
+
+
+
+    var x = document.getElementById("demo");
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+
+
+
+
+function showPosition(position) {
+    console.log(position.coords.latitude);
+    console.log(position.coords.longitude);
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude; 
+    var arr = {'lattitude':position.coords.latitude,
+                'longitude':position.coords.longitude};
+
+    $.ajax({
+        url : '/storelocations',
+        type: 'POST',
+        data: JSON.stringify(arr),
+        contentType: 'application/json; charset=utf-8',
+        success : function(data)
+        {
+            console.log("asda");
+        }
+
+    }) ;
+
+}
+
+
+
+
+</script>
+
+
+
+
+
+<script>
+      // This sample uses the Place Autocomplete widget to allow the user to search
+      // for and select a place. The sample then displays an info window containing
+      // the place ID and other information about the place that the user has
+      // selected.
+
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -33.8688, lng: 151.2195},
+          zoom: 13
+        });
+
+        var input = document.getElementById('pac-input');
+
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.bindTo('bounds', map);
+
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        var infowindow = new google.maps.InfoWindow();
+        var marker = new google.maps.Marker({
+          map: map
+        });
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+
+        autocomplete.addListener('place_changed', function() {
+          infowindow.close();
+          var place = autocomplete.getPlace();
+          if (!place.geometry) {
+            return;
+          }
+
+          if (place.geometry.viewport) {
+            map.fitBounds(place.geometry.viewport);
+          } else {
+            map.setCenter(place.geometry.location);
+            map.setZoom(17);
+          }
+
+// making a ajax callback
+
+
+    var arr = {'lattitude':place.geometry.location.lat(),
+                'longitude':place.geometry.location.lng()};
+
+    $.ajax({
+        url : '/storelocations',
+        type: 'POST',
+        data: JSON.stringify(arr),
+        contentType: 'application/json; charset=utf-8',
+        success : function(data)
+        {
+            console.log("asda");
+        }
+
+    }) ;
+
+          // Set the position of the marker using the place ID and location.
+          marker.setPlace({
+            placeId: place.place_id,
+            location: place.geometry.location
+          });
+          marker.setVisible(true);
+
+          infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+              'Place ID: ' + place.place_id + '<br>' +
+              place.formatted_address);
+          infowindow.open(map, marker);
+        });
+      }
+    </script>
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKsu9oYm71Pikr9P9IeTLlGWCxqbyVv58&libraries=places&callback=initMap"
+        async defer></script>
+
+</body>
+
+</html>
+
+
+
+
+
+

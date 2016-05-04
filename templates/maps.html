@@ -11,14 +11,18 @@
     
 
     <body>
-     <!-- 
+     
        
-  <h2> Second map generated in view</h2>
-        <h3> Example for different icons in multiple markers</h3> -->
+  <h2>{{ place }} nearby You  <a onclick="goBack()" href='#'>Go Back</a></h2>
         {{sndmap.html}}
 
      
 
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
        
     </body>
 </html>
